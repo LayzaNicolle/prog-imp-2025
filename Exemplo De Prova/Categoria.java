@@ -1,4 +1,4 @@
 public class Categoria{
-    int codigo;
-    String nome;
+    int codigoCategoria;
+    String nomeCategoria;
 }

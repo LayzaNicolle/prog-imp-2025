@@ -1,4 +1,4 @@
-public class Categoria{
-    int codigoCategoria;
-    String nomeCategoria;
+public class Categoria {
+    int codigo;
+    String nome;
 }

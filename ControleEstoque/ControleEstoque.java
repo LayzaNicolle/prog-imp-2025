@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ControleEstoque {
     
-    public static Produtos[] produtos = new Produtos[6];
+    public static Produto[] produtos = new Produto[6];
     public static int totalProdutos = 0; 
     public static Scanner input = new Scanner(System.in);
     
@@ -65,7 +65,7 @@ public class ControleEstoque {
         
         System.out.println("\n=== CADASTRAR PRODUTO ===");
         
-        Produtos p = new Produtos();
+        Produto p = new Produto();
         
         System.out.print("Nome: ");
         p.nome = input.nextLine();
@@ -95,7 +95,7 @@ public class ControleEstoque {
     
         System.out.println("\n=== LISTA DE PRODUTOS ===");
         for (int i = 0; i < totalProdutos; i++) {
-            Produtos p = produtos[i];
+            Produto p = produtos[i];
             System.out.printf("(%s, %d unid., R$ %.2f, %s, mín: %d)\n",
                 p.nome, p.qtdEstoque, p.preco, p.categoria, p.qtdMinima);
         }
@@ -114,7 +114,7 @@ public class ControleEstoque {
     
         boolean encontrou = false;
         for (int i = 0; i < totalProdutos; i++) {
-            Produtos p = produtos[i];
+            Produto p = produtos[i];
             if (p.categoria.equalsIgnoreCase(categoriaFiltro)) {
                 System.out.printf("(%s, %d unid., R$ %.2f, %s, mín: %d)\n",
                     p.nome, p.qtdEstoque, p.preco, p.categoria, p.qtdMinima);
@@ -136,7 +136,7 @@ public class ControleEstoque {
         for (int i = 0; i < totalProdutos - 1; i++) {
             for (int j = 0; j < totalProdutos - 1 - i; j++) {
                 if (produtos[j].nome.compareToIgnoreCase(produtos[j + 1].nome) > 0) {
-                    Produtos temp = produtos[j];
+                    Produto temp = produtos[j];
                     produtos[j] = produtos[j + 1];
                     produtos[j + 1] = temp;
                 }

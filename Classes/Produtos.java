@@ -1,4 +1,4 @@
-public class Produto{
+public class Produtos{
     String titulo;
     String descricao;
     double precoUnitario;

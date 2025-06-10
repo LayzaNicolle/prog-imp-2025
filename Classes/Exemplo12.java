@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Exemplo12{
     public static Scanner input = new Scanner(System.in);
     public static void main(String[] args){
-        Produto p1 = new Produto(), p2 = new Produto();
+        Produtos p1 = new Produtos(), p2 = new Produtos();
         System.out.println("------------DADOS DO PRODUTO 1------------");
         lerProduto(p1);
         System.out.println("------------DADOS DO PRODUTO 2------------");
@@ -15,7 +15,7 @@ public class Exemplo12{
 
     }
 
-    public static void lerProduto(Produto p){
+    public static void lerProduto(Produtos p){
        System.out.print("Digite o nome do produto: ");
         p.titulo = input.nextLine();
         System.out.print("Digite a descrição do produto: ");
@@ -28,7 +28,7 @@ public class Exemplo12{
         input.nextLine(); 
     }
 
-    public static void imprimirProduto(Produto p){
+    public static void imprimirProduto(Produtos p){
         System.out.println("Produto: " + p.titulo);
         System.out.println("Descrição: " + p.descricao);
         System.out.println("Preço: " + p.precoUnitario);

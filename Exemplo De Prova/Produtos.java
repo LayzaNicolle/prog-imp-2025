@@ -1,4 +1,4 @@
-public class Produto{
+public class Produtos{
     int codigo;
     String titulo, descricao;
     int categoria;

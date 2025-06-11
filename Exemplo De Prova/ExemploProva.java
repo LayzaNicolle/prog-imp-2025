@@ -43,7 +43,7 @@ public class ExemploProva {
             }
         }
 
-        System.out.print("Nome da catégoria: ");
+        System.out.print("Nome da categoria: ");
         String nome = input.nextLine();
 
         v[qtd] = new Categoria();

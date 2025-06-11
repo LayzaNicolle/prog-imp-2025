@@ -124,6 +124,7 @@ public class ExemploProva {
    public static void selectionSortPorDescricao(Product[] vp, int qtd) {
     for (int i = 0; i < qtd - 1; i++) {
         int indiceMenor = i;
+        Product aux;
         
         for (int j = i + 1; j < qtd; j++) {
             //comparando as descrições ignorando maiúsculas/minúsculas
@@ -131,13 +132,9 @@ public class ExemploProva {
                 indiceMenor = j;
             }
         }
-
-        // Troca os elementos, se for necessário
-        if (indiceMenor != i) {
-            Product temp = vp[i];
-            vp[i] = vp[indiceMenor];
-            vp[indiceMenor] = temp;
-        }
+        aux = vp[indiceMenor];
+        vp[indiceMenor] = vp[i];
+        vp[i] = aux;
     }
 }
 

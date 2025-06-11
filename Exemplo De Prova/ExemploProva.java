@@ -18,13 +18,14 @@ public class ExemploProva {
         System.out.println("\n--- Listagem de produtos ---\n");
         input.nextLine();
         imprimirProdutos(produtos, qtdProdutos, categorias, qtdCategorias);
-        bubbleSortPorDescricao(produtos, qtdProdutos);
+        selectionSortPorDescricao(produtos, qtdProdutos);
         System.out.println("");
         System.out.print("Digite uma descrição para busca: ");
         String busca = input.nextLine();
         buscaBinariaPorDescricao(produtos, qtdProdutos, busca);
     }
 
+    //Primeira questão, implementando a função int cadastrarCategoria(Categoria[] v, int qtd)
     public static int cadastrarCategoria(Categoria[] v, int qtd) {
         if (qtd >= TAM) {
             System.out.println("Limite de categorias Atingido!");
@@ -52,6 +53,7 @@ public class ExemploProva {
         return qtd + 1;
     }
 
+    //Questão 02, implementando a função void imprimirCategorias(Categoria[] v, int qtd)
     public static void imprimirCategorias(Categoria[] v, int qtd) {
         for (int i = 0; i < qtd; i++) {
             System.out.printf("(Código: %d, Nome: %s)\n",
@@ -59,6 +61,8 @@ public class ExemploProva {
         }
     }
 
+    //Questão 03, implementando a função void imprimirProdutos(Produto[] vp, int qtdProdutos, Categoria[] vc, int qtdCategorias)
+    //Antes de implementar a função de imprimir, criamos a função de cadastrar o produto
     public static int cadastrarProduto(Product[] vp, int qtdProdutos, Categoria[] vc, int qtdCategorias) {
         if (qtdProdutos >= TAM) {
             System.out.println("Limite de produtos atingido!");
@@ -116,25 +120,28 @@ public class ExemploProva {
         }
     }
 
-    public static void bubbleSortPorDescricao (Product[] vp, int qtd) {
-        Product aux;
-        boolean trocou;
-        for (int i = 0; i < qtd - 1; i ++) {
-            trocou = false;
-            for (int j = 0; j < qtd - 1 - i; j++) {
-                if (vp[j].descricao.compareToIgnoreCase(vp[j+1].descricao) > 0) {
-                    aux = vp[j];
-                    vp[j] = vp[j+1];
-                    vp[j+1] = aux;
-                    trocou = true;
-                }
-            }
-            if (!trocou) {
-                break;
+    //Questão 04, implementando a funcão void selectionSortPorDescrição
+   public static void selectionSortPorDescricao(Product[] vp, int qtd) {
+    for (int i = 0; i < qtd - 1; i++) {
+        int indiceMenor = i;
+        
+        for (int j = i + 1; j < qtd; j++) {
+            //comparando as descrições ignorando maiúsculas/minúsculas
+            if (vp[j].descricao.compareToIgnoreCase(vp[indiceMenor].descricao) < 0) {
+                indiceMenor = j;
             }
         }
-    }
 
+        // Troca os elementos, se for necessário
+        if (indiceMenor != i) {
+            Product temp = vp[i];
+            vp[i] = vp[indiceMenor];
+            vp[indiceMenor] = temp;
+        }
+    }
+}
+
+    //Questão 05, implementando a função void buscaBinariaPorDescricao(Produto[] v, int qtd, String x)
     public static void buscaBinariaPorDescricao(Product[] v, int qtd, String x) {
         int inicio = 0;
         int fim = qtd - 1;
